@@ -46,13 +46,13 @@ class JsonApiView extends \Slim\View {
      * @var string
      */
     public $contentType = 'application/json';
-    
+
     /**
      *
      * @var string
      */
     private $dataWraper;
-    
+
     /**
      *
      * @var string
@@ -60,7 +60,7 @@ class JsonApiView extends \Slim\View {
     private $metaWrapper;
 
     /**
-     * 
+     *
      * @var bool
      */
     private $dataOnly = false;
@@ -130,7 +130,7 @@ class JsonApiView extends \Slim\View {
         } else {
             unset($response['flash'], $response['status'], $response['error']);
         }
-		
+
         $app->response()->status($status);
         $app->response()->header('Content-Type', $this->contentType);
 
@@ -148,7 +148,7 @@ class JsonApiView extends \Slim\View {
     /**
      * set whether to return only the data
      *
-     * @param   bool    $dataOnly  
+     * @param   bool    $dataOnly
      */
     public function dataOnly($dataOnly = true)
     {
