@@ -53,14 +53,14 @@ class JsonApiMiddleware extends \Slim\Middleware {
             }
 
             $app->render($errorCode,array(
-                'msg'   => \JsonApiMiddleware::_errorType($e->getCode()) .": ". $e->getMessage(),
+                'message'   => \JsonApiMiddleware::_errorType($e->getCode()) .": ". $e->getMessage(),
             ));
         });
 
         // Not found handler (invalid routes, invalid method types)
         $app->notFound(function() use ($app) {
             $app->render(404,array(
-                'msg'   => 'Invalid route',
+                'message'   => 'Invalid route',
             ));
         });
 
@@ -74,7 +74,7 @@ class JsonApiMiddleware extends \Slim\Middleware {
 
             if (strlen($app->response()->body()) == 0) {
                 $app->render(500,array(
-                    'msg'   => 'Empty response',
+                    'message'   => 'Empty response',
                 ));
             }
         });
