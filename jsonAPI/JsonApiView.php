@@ -88,6 +88,10 @@ class JsonApiView extends \Slim\View {
             $response = $this->all();
         }
 
+        if($status >= 400 && array_key_exists('message', $response)) {
+            error_log('Error Message: ' + $response['message']);
+        }
+
         if (! $this->dataOnly) {
             //append error bool
             if ($status<400) {
